@@ -6,11 +6,9 @@
         <title>Introduction</title>
     </head>
     <body>
-        <div id="bind-attribute">
-            <span v-bind:title="message">
-                Hover you mouse over me for a few seconds to see my dynamically
-                bound title!
-            </span>
+        <div id="event-handling">
+            <p>{{ message }}</p>
+            <button v-on:click="reverseMessage">Reverse Message</button>
         </div>
 
         <script src="https://unpkg.com/vue@next"></script>
