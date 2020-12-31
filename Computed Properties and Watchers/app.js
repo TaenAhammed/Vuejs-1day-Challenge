@@ -1,34 +1,30 @@
-const vm = Vue.createApp({
+const WatchExampleVM = Vue.createApp({
     data() {
         return {
-            firstName: "Taen",
-            lastName: "Ahammed",
-            author: {
-                name: "John Doe",
-                books: [
-                    "Vue 2 - Advanced Guide",
-                    "Vue 3 - Basic Guide",
-                    "Vue 4 - The Mystery",
-                ],
-            },
+            question: "",
+            answer: "Questions usually contain a question mark. :-)",
         };
     },
 
-    computed: {
-        fullName: {
-            get() {
-                return this.firstName + " " + this.lastName;
-            },
-
-            set(newValue) {
-                const names = newValue.split(" ");
-                this.firstName = names[0];
-                this.lastName = names[names.length - 1];
-            },
-        },
-
-        publishedBooksMessage() {
-            return this.author.books.length > 0 ? "Yes" : "No";
+    watch: {
+        question(newQuestion, oldQuestion) {
+            if (newQuestion.indexOf("?") > -1) {
+                this.getAnswer();
+            }
         },
     },
-}).mount("#computed-basics");
+
+    methods: {
+        getAnswer() {
+            this.answer = "Thinking...";
+            axios
+                .get("https://yesno.wtf/api")
+                .then((res) => {
+                    this.answer = res.data.answer;
+                })
+                .catch((error) => {
+                    this.answer = "Error! Could not reach the API. " + error;
+                });
+        },
+    },
+}).mount("#watch-example");
