@@ -1,15 +1,9 @@
-const EventHandling = {
+const TwoWayBinding = {
     data() {
         return {
-            message: "Hello Vue.js!",
+            message: "Hello Vue!",
         };
-    },
-
-    methods: {
-        reverseMessage() {
-            this.message = this.message.split("").reverse().join("");
-        },
     },
 };
 
-Vue.createApp(EventHandling).mount("#event-handling");
+Vue.createApp(TwoWayBinding).mount("#two-way-binding");
