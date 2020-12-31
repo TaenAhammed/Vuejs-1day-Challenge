@@ -6,7 +6,12 @@
         <title>Introduction</title>
     </head>
     <body>
-        <div id="counter">Counter: {{ counter }}</div>
+        <div id="bind-attribute">
+            <span v-bind:title="message">
+                Hover you mouse over me for a few seconds to see my dynamically
+                bound title!
+            </span>
+        </div>
 
         <script src="https://unpkg.com/vue@next"></script>
         <script src="app.js"></script>
