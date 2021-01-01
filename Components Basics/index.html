@@ -11,13 +11,13 @@
             <button
                 v-for="tab in tabs"
                 :key="tab"
-                :class="['tab-button', {active: currentTab === tab}]"
+                :class="['tab-button', { active: currentTab === tab }]"
                 @click="currentTab = tab"
             >
-                {{ tab}}
+                {{ tab.name }}
             </button>
 
-            <component :is="currentTabComponent" class="tab"></component>
+            <component :is="currentTab.component"></component>
         </div>
 
         <script src="https://unpkg.com/vue@next"></script>

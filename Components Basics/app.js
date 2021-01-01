@@ -1,8 +1,29 @@
+const tabs = [
+    {
+        name: "Home",
+        component: {
+            template: `<div class="demo-tab">Home component</div>`,
+        },
+    },
+    {
+        name: "Posts",
+        component: {
+            template: `<div class="demo-tab">Posts component</div>`,
+        },
+    },
+    {
+        name: "Archive",
+        component: {
+            template: `<div class="demo-tab">Archive component</div>`,
+        },
+    },
+];
+
 const app = Vue.createApp({
     data() {
         return {
-            currentTab: "Home",
-            tabs: ["Home", "Posts", "Archive"],
+            tabs,
+            currentTab: tabs[0],
         };
     },
 
