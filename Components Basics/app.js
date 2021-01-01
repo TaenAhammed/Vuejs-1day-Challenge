@@ -6,6 +6,7 @@ const App = {
                 { id: 2, title: "Blogging with Vue" },
                 { id: 3, title: "Why Vue is so fun" },
             ],
+            postFontSize: 1,
         };
     },
 };
@@ -15,7 +16,14 @@ const app = Vue.createApp(App);
 app.component("blog-post", {
     props: ["title"],
 
-    template: `<h4>{{ title }}</h4>`,
+    template: `
+        <div class='blog-post'>
+            <h4>{{title}}</h4>
+            <button @click="$emit('enlargeText')">
+                Enlarge text
+            </button>
+        </div>
+    `,
 });
 
-app.mount("#blog-post-demo");
+app.mount("#blog-posts-events-demo");
