@@ -1,12 +1,28 @@
-const app = Vue.createApp({});
+const app = Vue.createApp({
+    data() {
+        return {
+            currentTab: "Home",
+            tabs: ["Home", "Posts", "Archive"],
+        };
+    },
 
-app.component("alert-box", {
-    template: `
-        <div class='demo-alert-box'>
-            <strong>Error!</strong>
-            <slot></slot>
-        </div>
-    `,
+    computed: {
+        currentTabComponent() {
+            return "tab-" + this.currentTab.toLowerCase();
+        },
+    },
 });
 
-app.mount("#slots-demo");
+app.component("tab-home", {
+    template: `<div class="demo-tab">Home component</div>`,
+});
+
+app.component("tab-posts", {
+    template: `<div class="demo-tab">Posts component</div>`,
+});
+
+app.component("tab-archive", {
+    template: `<div class="demo-tab">Archive component</div>`,
+});
+
+app.mount("#dynamic-component-demo");

@@ -7,8 +7,17 @@
         <title>Introduction</title>
     </head>
     <body>
-        <div id="slots-demo" class="demo">
-            <alert-box> Something bad happened. </alert-box>
+        <div id="dynamic-component-demo" class="demo">
+            <button
+                v-for="tab in tabs"
+                :key="tab"
+                :class="['tab-button', {active: currentTab === tab}]"
+                @click="currentTab = tab"
+            >
+                {{ tab}}
+            </button>
+
+            <component :is="currentTabComponent" class="tab"></component>
         </div>
 
         <script src="https://unpkg.com/vue@next"></script>
