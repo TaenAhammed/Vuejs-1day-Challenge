@@ -7,15 +7,8 @@
         <title>Introduction</title>
     </head>
     <body>
-        <div id="blog-posts-events-demo" class="demo">
-            <div :style="{fontSize: postFontSize + 'em'}">
-                <blog-post
-                    v-for="post in posts"
-                    :key="post.id"
-                    :title="post.title"
-                    @enlarge-text="postFontSize += 0.1"
-                ></blog-post>
-            </div>
+        <div id="slots-demo" class="demo">
+            <alert-box> Something bad happened. </alert-box>
         </div>
 
         <script src="https://unpkg.com/vue@next"></script>
