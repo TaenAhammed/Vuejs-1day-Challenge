@@ -8,9 +8,11 @@
     </head>
     <body>
         <div id="blog-post-demo" class="demo">
-            <blog-post title="My journey with Vue"></blog-post>
-            <blog-post title="Blogging with Vue"></blog-post>
-            <blog-post title="Join with Vue"></blog-post>
+            <blog-post
+                v-for="post in posts"
+                :key="post.id"
+                :title="post.title"
+            ></blog-post>
         </div>
 
         <script src="https://unpkg.com/vue@next"></script>
