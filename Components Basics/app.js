@@ -1,17 +1,9 @@
 const app = Vue.createApp({});
 
-app.component("button-counter", {
-    data() {
-        return {
-            count: 0,
-        };
-    },
+app.component("blog-post", {
+    props: ["title"],
 
-    template: `
-        <button @click="count++">
-            You clicked me {{ count }} times.
-        </button>
-    `,
+    template: `<h4>{{ title }}</h4>`,
 });
 
-app.mount("#components-demo");
+app.mount("#blog-post-demo");
